@@ -6,6 +6,7 @@ const heroes = [
         health: 100,
         gold: 20,
         level: 1,
+        chosen: false
     },
     {
         name: 'Flint Ironstag',
@@ -14,6 +15,7 @@ const heroes = [
         health: 100,
         gold: 20,
         level: 1,
+        chosen: false
     }
 ]
 
@@ -77,6 +79,7 @@ setInterval(damageplayers, 1000)
 
 function buyStuff() {
     const PlayerOneGoldElement = document.getElementById('playerOneGold')
+    const PlayerTwoGoldElement = document.getElementById('playerTwoGold')
 
 
     const playerOne = heroes.find((hero) => hero.name == 'Slate Slabrock')
@@ -89,8 +92,29 @@ function buyStuff() {
     if (playerOne.gold > 20) {
         window.alert("GET OUT!!!!!")
     }
+
     PlayerOneGoldElement.innerText = playerOne.gold -= 20
+    PlayerTwoGoldElement.innerText = playerTwo.gold -= 20
 
 
-    console.log(playerOne.gold)
+}
+function choiceOne() {
+    const playerOne = heroes.find((hero) => hero.name == 'Slate Slabrock')
+    playerOne.chosen = true
+    console.log("player One", playerOne.chosen)
+
+}
+
+function ChoiceTwo() {
+    const playerTwo = heroes.find((hero) => hero.name == 'Flint Ironstag')
+    const playerOne = heroes.find((hero) => hero.name == 'Slate Slabrock')
+
+    playerTwo.chosen = true
+    if (playerTwo.chosen == true) {
+        playerOne.chosen = false
+    }
+    console.log("player Two", playerTwo.chosen)
+    console.log("player One", playerOne.chosen)
+
+    buyStuff()
 }
