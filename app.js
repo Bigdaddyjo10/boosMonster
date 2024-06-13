@@ -10,7 +10,7 @@ const heroes = [
         name: 'Flint Ironstag',
         type: 'elf',
         damage: 10,
-        health: 50,
+        health: 100,
         gold: 20
     }
 ]
@@ -26,22 +26,26 @@ const boss = {
 function damgeGhoat() {
     const ghostElement = document.getElementById("bossHelth")
     const hero = heroes
-    // const playerOne = heroes.find((hero) => hero.name == "Salte Slabrock")
+    const playerOne = heroes.find((hero) => hero.name == "Slate Slabrock")
     const PlayerTwo = heroes.find((hero) => hero.name == "Flint Ironstag")
     ghostElement.innerHTML = boss.health -= 10
     if (boss.health <= 0) {
         boss.health += 160
         boss.level++
-        console.log(playerOne.gold);
+        playerOne.gold += 5
+        PlayerTwo.gold += 5
+        const PlayerOneGoldElement = document.getElementById('playerOneGold')
+        PlayerOneGoldElement.innerText = playerOne.gold
+        const PlayerTwoGoldElement = document.getElementById('playerTwoGold')
+        PlayerTwoGoldElement.innerText = PlayerTwo.gold
 
     }
+    console.log(boss.health);
+
 }
 
-
-
 function damageplayers() {
-    const playerOneElement = document.getElementById("playerOneHelth")
-
+    const playerOneElement = document.getElementById("playerOneHealth")
     const playerTwoElement = document.getElementById("playerTwoHealth")
     const playerOne = heroes.find((hero) => hero.name == 'Slate Slabrock')
     const playerTwo = heroes.find((hero) => hero.name == 'Flint Ironstag')
@@ -60,4 +64,4 @@ function damageplayers() {
     // console.log(playerOne.health--);
 }
 
-setInterval(damageplayers, 5000)
+setInterval(damageplayers, 1000)
