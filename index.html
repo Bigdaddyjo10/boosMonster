@@ -11,20 +11,17 @@
   <body>
     <header>
       <div class="row">
-        <div onclick="choiceOne('Flint Ironstag')" class="col-3 border ">
-          <p>
-            Jerms <br />
-            <p>HP: <span id="playerOneHealth"></span></p>
-            <p>Gold:<span id="playerOneGold">5</span></p>
-            <p>LVL:<span id="playerOneLvl">0</span></p>
-          </p>
+        <div class="col-3 border ">
+          <p>Jerms </p>
+            <p>HP: <span id="playerHealth">100</span></p>
+            <p>Gold:<span id="moneyBag">5</span></p>
+            <p>LVL:<span id="playerLvl">1</span></p>
         </div>
-        <div onclick="choiceOne('Slate Slabrock')" class="col-3 border">
+        <div class="col-3 border">
           <p>
             Jerms <br />
             <p>HP: <samp id="playerTwoHealth">100</samp></p>
-            <p>Gold:<span id="playerTwoGold">10</span></p>
-            <p>LVL:<span id="playerTwoLvl">0</span></p>
+            <p>LVL:<span id="playerTwoLvl">1</span></p>
           </p>
         </div>
       </div>
@@ -32,13 +29,10 @@
 
     <main class="container">
       <div class="row img-fluid">
-        <div onclick="damgeGhoat()" class="col-6 border goblin-img">
+        <div onclick="hitBoss()" class="col-6 border goblin-img">
           <div>
-
-              <div class="progress-bar w-75"></div>
-              <p id="bossHelth">100</p>
+              <p id="bossHealth">100</p>
             </div>
-            Goodeye Boy<br />
           </div>
         </div>
       </div>
@@ -47,9 +41,9 @@
     <footer class="container-fluid">
       <div class="row">
         <div class="col-6 border">
-          <p onclick="buyStuff('hammer')" class="border">Buy Hammer 20 gold</p>
-          <p onclick="buyStuff('sarod')" class="border">Buy Sarod 20 gold</p>
-          <p onclick="buyStuff('rock')" class="border">Buy Rock 20 gold</p>
+          <p onclick="buyWeapons(20)" class="border">Buy Hammer 20 gold</p>
+          <p onclick="buyWeapons(5)" class="border">Buy Sarod 20 gold</p>
+          <p onclick="buyWeapons(100)" class="border">Buy Rock 20 gold</p>
         </div>
         <div class="col-6 border">Reset</div>
       </div>

@@ -4,18 +4,17 @@ const heroes = [
         type: 'dwarf',
         damage: 5,
         health: 100,
-        gold: 20,
+        gold: 5,
         level: 1,
-        chosen: false
     },
     {
         name: 'Flint Ironstag',
         type: 'elf',
         damage: 10,
         health: 100,
-        gold: 20,
+        gold: 5,
         level: 1,
-        chosen: false
+
     }
 ]
 
@@ -25,87 +24,71 @@ const boss = {
     damage: 5,
     level: 1
 }
+const player = heroes.find((hero) => hero.name == 'Slate Slabrock')
+
+function hitBoss() {
+    const ghostElement = document.getElementById("bossHealth")
+    const playerLevelElement = document.getElementById('playerLvl')
+    const playerGoldElement = document.getElementById('moneyBag')
 
 
-function damgeGhoat() {
-    const ghostElement = document.getElementById("bossHelth")
-    const hero = heroes
-    const playerOne = heroes.find((hero) => hero.name == "Slate Slabrock")
-    const PlayerTwo = heroes.find((hero) => hero.name == "Flint Ironstag")
+
+    playerLevelElement.innerText = player.level
     ghostElement.innerHTML = boss.health -= 10
+    playerGoldElement.innerText = player.gold
+
+
     if (boss.health <= 0) {
-        boss.health += 160
-        boss.level++
-        playerOne.gold += 5
-        PlayerTwo.gold += 5
-        const PlayerOneGoldElement = document.getElementById('playerOneGold')
-        PlayerOneGoldElement.innerText = playerOne.gold
-        const PlayerTwoGoldElement = document.getElementById('playerTwoGold')
-        PlayerTwoGoldElement.innerText = PlayerTwo.gold
-
-
-        const PlayerOneLevelElement = document.getElementById('playerOneLvl')
-        PlayerOneLevelElement.innerText = playerOne.level
-        const PlayerTwoLevelElement = document.getElementById('playerTwoLvl')
-        PlayerTwoLevelElement.innerText = PlayerTwo.level
-
+        // @ts-ignore
+        player.gold += 10
+        // @ts-ignore
+        player.level += 1
+        // @ts-ignore
+        boss.health += boss.maxHealth + 50
     }
+    // @ts-ignore
+
     console.log(boss.health);
 
 }
 
-function damageplayers() {
-    const playerOneElement = document.getElementById("playerOneHealth")
-    const playerTwoElement = document.getElementById("playerTwoHealth")
-    const playerOne = heroes.find((hero) => hero.name == 'Slate Slabrock')
-    const playerTwo = heroes.find((hero) => hero.name == 'Flint Ironstag')
-    const bossDange = boss.damage
+function damagePlayers() {
+    const playerOneElement = document.getElementById("playerHealth")
 
-    if (playerOne.health <= 0) {
-        playerOne.health = boss.damage * boss.level
+    const bossDamage = boss.damage
+    // @ts-ignore
+    if (player.health <= 0) {
+        restart()
+        window.alert("BITCH!!!!")
+
+        // @ts-ignore
+        // player.health = bossDamage
     }
-    if (playerTwo.health <= 0) {
-        playerTwo.health = 5
-    }
-
-
-    playerOneElement.innerText = playerOne.health -= bossDange * boss.level
-    playerTwoElement.innerText = playerTwo.health -= bossDange
-    // console.log(playerOne.health--);
+    // @ts-ignore
+    playerOneElement.innerText = player.health -= bossDamage
 }
 
-setInterval(damageplayers, 1000)
+setInterval(damagePlayers, 100)
 
+function buyWeapons(money) {
+    const moneyBagElement = document.getElementById('moneyBag')
 
-function buyStuff() {
-    const PlayerOneGoldElement = document.getElementById('playerOneGold')
-    const PlayerTwoGoldElement = document.getElementById('playerTwoGold')
-
-
-    const playerOne = heroes.find((hero) => hero.name == 'Slate Slabrock')
-    const playerTwo = heroes.find((hero) => hero.name == 'Flint Ironstag')
-
-    if (playerOne.gold == 0) {
-        playerOne.gold = 20
-        window.alert("GET A JOB")
+    // @ts-ignore
+    if (player.gold == 0) {
+        // @ts-ignore
+        player.gold = 20
+    } // @ts-ignore
+    if (player.gold > 20) {
+        // @ts-ignore
+        moneyBagElement.innerText = player.gold -= money
     }
-    if (playerOne.gold > 20) {
-        window.alert("GET OUT!!!!!")
-    }
+}
 
-    PlayerOneGoldElement.innerText = playerOne.gold -= 20
-    PlayerTwoGoldElement.innerText = playerTwo.gold -= 20
 
+
+function restart() {
+    player.health += 100
+    player.gold = 5
+    player.level = 1
 
 }
-function choiceOne(playerName) {
-    const playerName = heroes.find((hero) => hero.name == 'Slate Slabrock')
-
-    if (playerChosen.name == 'Slate Slabrock') {
-        playerOne.chosen = true
-        playerTwo.chosen = false
-
-        console.log("player Two", playerTwo.chosen)
-        console.log("player One", playerOne.chosen)
-
-    }
