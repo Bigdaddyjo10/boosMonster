@@ -98,23 +98,14 @@ function buyStuff() {
 
 
 }
-function choiceOne() {
-    const playerOne = heroes.find((hero) => hero.name == 'Slate Slabrock')
-    playerOne.chosen = true
-    console.log("player One", playerOne.chosen)
+function choiceOne(playerName) {
+    const playerName = heroes.find((hero) => hero.name == 'Slate Slabrock')
 
-}
+    if (playerChosen.name == 'Slate Slabrock') {
+        playerOne.chosen = true
+        playerTwo.chosen = false
 
-function ChoiceTwo() {
-    const playerTwo = heroes.find((hero) => hero.name == 'Flint Ironstag')
-    const playerOne = heroes.find((hero) => hero.name == 'Slate Slabrock')
+        console.log("player Two", playerTwo.chosen)
+        console.log("player One", playerOne.chosen)
 
-    playerTwo.chosen = true
-    if (playerTwo.chosen == true) {
-        playerOne.chosen = false
     }
-    console.log("player Two", playerTwo.chosen)
-    console.log("player One", playerOne.chosen)
-
-    buyStuff()
-}

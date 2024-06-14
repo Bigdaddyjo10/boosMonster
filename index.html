@@ -11,19 +11,19 @@
   <body>
     <header>
       <div class="row">
-        <div onclick="choiceOne()" class="col-3 border ">
+        <div onclick="choiceOne('Flint Ironstag')" class="col-3 border ">
           <p>
             Jerms <br />
             <p>HP: <span id="playerOneHealth"></span></p>
-            <p>Gold:<span id="playerOneGold">20</span></p>
+            <p>Gold:<span id="playerOneGold">5</span></p>
             <p>LVL:<span id="playerOneLvl">0</span></p>
           </p>
         </div>
-        <div onclick="ChoiceTwo()" class="col-3 border">
+        <div onclick="choiceOne('Slate Slabrock')" class="col-3 border">
           <p>
             Jerms <br />
             <p>HP: <samp id="playerTwoHealth">100</samp></p>
-            <p>Gold:<span id="playerTwoGold">20</span></p>
+            <p>Gold:<span id="playerTwoGold">10</span></p>
             <p>LVL:<span id="playerTwoLvl">0</span></p>
           </p>
         </div>
@@ -34,7 +34,7 @@
       <div class="row img-fluid">
         <div onclick="damgeGhoat()" class="col-6 border goblin-img">
           <div>
-            <div  class="progress" role="progressbar" aria-label="Basic example" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100">
+
               <div class="progress-bar w-75"></div>
               <p id="bossHelth">100</p>
             </div>
@@ -47,9 +47,9 @@
     <footer class="container-fluid">
       <div class="row">
         <div class="col-6 border">
-          <p onclick="buyStuff()" class="border">Buy Hammer 20 gold</p>
-          <p>Buy njan 24b</p>
-          <p>Buy njan 24b</p>
+          <p onclick="buyStuff('hammer')" class="border">Buy Hammer 20 gold</p>
+          <p onclick="buyStuff('sarod')" class="border">Buy Sarod 20 gold</p>
+          <p onclick="buyStuff('rock')" class="border">Buy Rock 20 gold</p>
         </div>
         <div class="col-6 border">Reset</div>
       </div>
