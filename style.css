@@ -1,6 +1,9 @@
-.goblin-img {
-  background-image: url(https://images.unsplash.com/photo-1633826523932-fb137c3353b5?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D);
-  background-position: center;
-  object-fit: 1/1;
+.gym-img {
   background-size: cover;
+  background-image: url(https://images.unsplash.com/photo-1571902943202-507ec2618e8f?q=80&w=2750&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D);
+}
+
+.gain-img {
+  background-size: contain;
+  height: 30vh;
 }

@@ -1,94 +1,90 @@
 const heroes = [
     {
-        name: 'Slate Slabrock',
-        type: 'dwarf',
-        damage: 5,
-        health: 100,
-        gold: 5,
-        level: 1,
+        name: 'Ronnie Coleman',
+        type: 'bodyBuilder',
+        muscleLoss: 5,// damage:,
+        gains: 100,// health:
+        rizz: 5, //gold
+        level: 1
     },
     {
-        name: 'Flint Ironstag',
-        type: 'elf',
-        damage: 10,
-        health: 100,
-        gold: 5,
+        name: 'Deadlift Divas',
+        type: 'powerLifter',
+        muscleLoss: 10,
+        gains: 100,
+        rizz: 5,
         level: 1,
 
     }
 ]
-
-const boss = {
-    health: 100,
-    maxHealth: 100,
-    damage: 5,
+// the boss
+const workOut = {
+    gains: 100,
+    maxGains: 100,
+    muscleLoss: 5,
     level: 1
 }
-const player = heroes.find((hero) => hero.name == 'Slate Slabrock')
+const bodyBuilder = heroes.find((hero) => hero.name == 'Deadlift Divas')
+const powerLifter = heroes.find((hero) => hero.name == 'Ronnie Coleman')
 
-function hitBoss() {
-    const ghostElement = document.getElementById("bossHealth")
-    const playerLevelElement = document.getElementById('playerLvl')
-    const playerGoldElement = document.getElementById('moneyBag')
+// fighting muscels
+function loosingGains() {
+    const workOutElement = document.getElementById("bossHealth")
+    const bodyBuilderLevelElement = document.getElementById('playerLvl')
+    const bodyBuilderRizzElement = document.getElementById('rizz') // gold
+
+    bodyBuilderLevelElement.innerText = bodyBuilder.gains
+    workOutElement.innerHTML = bodyBuilder.gains -= 10
+    bodyBuilderRizzElement.innerText = bodyBuilder.rizz
 
 
-
-    playerLevelElement.innerText = player.level
-    ghostElement.innerHTML = boss.health -= 10
-    playerGoldElement.innerText = player.gold
-
-
-    if (boss.health <= 0) {
+    if (workOut.gains <= 0) {
         // @ts-ignore
-        player.gold += 10
+        // player.gold
+        bodyBuilder.rizz = workOut.gains
+
+    }
+    console.log(workOut.gains);
+}
+// losing gains or riz++
+function loosingGains() {
+    const bodyBuilderGainsElement = document.getElementById("playerGains")
+    const muscelsTracker = document.getElementById('muscleTracking')
+
+    const muscelsloss = workOut.damage
+    // @ts-ignore
+    if (bodyBuilder.gains <= 0) {
+        //     restart()
+
         // @ts-ignore
-        player.level += 1
-        // @ts-ignore
-        boss.health += boss.maxHealth + 50
+        bodyBuilder.gains = workOut.muscleLoss
     }
     // @ts-ignore
-
-    console.log(boss.health);
-
+    bodyBuilderGainsElement.innerText = bodyBuilder.gains -= workOut.muscleLoss
+    console.log(gym);
 }
 
-function damagePlayers() {
-    const playerOneElement = document.getElementById("playerHealth")
-
-    const bossDamage = boss.damage
-    // @ts-ignore
-    if (player.health <= 0) {
-        restart()
-        window.alert("BITCH!!!!")
-
-        // @ts-ignore
-        // player.health = bossDamage
-    }
-    // @ts-ignore
-    playerOneElement.innerText = player.health -= bossDamage
-}
-
-setInterval(damagePlayers, 100)
-
+setInterval(loosingGains, 100)
+// Buying steroids and protining shacks
 function buyWeapons(money) {
-    const moneyBagElement = document.getElementById('moneyBag')
+    const rizzElement = document.getElementById('rizz')
 
     // @ts-ignore
-    if (player.gold == 0) {
+    if (bodyBuilder.rizz == 0) {
         // @ts-ignore
-        player.gold = 20
+        bodyBuilder.rizz = 20
     } // @ts-ignore
-    if (player.gold > 20) {
+    if (bodyBuilder.rizz > 20) {
         // @ts-ignore
-        moneyBagElement.innerText = player.gold -= money
+        rizzElement.innerText = bodyBuilder.rizz -= money
     }
 }
 
 
 
 function restart() {
-    player.health += 100
-    player.gold = 5
-    player.level = 1
+    bodyBuilder.gains += 100
+    bodyBuilder.rizz = 5
+    bodyBuilder.level = 1
 
 }
